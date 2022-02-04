@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './header.css';
+import './Header.css';
 import { ReactComponent as Insta } from './pics/insta.svg';
 import { ReactComponent as Fb } from './pics/fb.svg';
 
@@ -16,17 +16,17 @@ export function Header() {
                     <div className='header-center-menu'>
                         <div className='header-menu-item'><Link to={'/'}>MAIN PAGE</Link></div>
                         <div className='header-menu-item'><Link to={'/projects'}>PROJECTS</Link></div>
-                        <div className='header-menu-item'><Link to={'/contacts'}>CONTACTS</Link></div>
+                        <div className='header-menu-item'><Link to={'/contact'}>CONTACT</Link></div>
                         <div className='header-menu-item'><Link to={'/about'}>ABOUT</Link></div>
                     </div>
                 </div>
                 <div className='header-right header-side'>
-                    <a href='https://www.instagram.com/verteeva/'>
+                    <a href='https://www.instagram.com/verteeva/' target='_blank'>
                         <div className='social'>
                             <Insta />
                         </div>
                     </a>
-                    <a href='https://www.facebook.com/valeria.verteeva/'>
+                    <a href='https://www.facebook.com/valeria.verteeva/' target='_blank'>
                         <div className='social'>
                             <Fb />
                         </div>
