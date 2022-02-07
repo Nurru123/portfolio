@@ -11,7 +11,7 @@ export function Footer() {
                     <a className='footer-menu-item' href='https://www.facebook.com/valeria.verteeva/' target='_blank'>FACEBOOK</a>
                 </div>
                 <div>
-                    <p>© Verteeva 2022</p>
+                    <p>© Verteeva & Marchenko 2022</p>
                 </div>
             </div>
         </footer>
