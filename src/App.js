@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { MainPage } from './pages/mainPage/MainPage'
+import MainPage from './pages/mainPage/MainPage'
 
 class App extends React.Component {
   render() {

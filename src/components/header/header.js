@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { ReactComponent as Insta } from './pics/insta.svg';
