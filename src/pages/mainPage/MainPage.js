@@ -13,7 +13,7 @@ import Admin from '../admin/Admin';
 
 import './MainPage.css';
 
-function MainPage(props) {
+function MainPage() {
 
     return (
         <div className='main-page'>
@@ -25,9 +25,7 @@ function MainPage(props) {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login />} />
-                    {props.auth
-                    ? <Route path='/login/admin' element={<Admin />} />
-                    : null}
+                    <Route path="/login/admin" element={<Admin />} />
                 </Routes>
             </div>
             <Footer />

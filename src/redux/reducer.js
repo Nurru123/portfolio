@@ -1,23 +1,23 @@
 const initialState = {
     login: '123',
     password: 'ddd',
-    auth: false
+    auth: localStorage.getItem('auth')
 }
 
 function reducer(state = initialState, action) {
 
     switch(action.type){
         case 'IS_LOGGED_IN':
-            const { login, password } = state;
+            const { login, password, auth } = state;
             if (login === action.payload.login && password === action.payload.password) {
-                console.log('leha')
-                return {
+                state = {
                     ...state, auth: true
                 }
+                return state
              } else return {
                  ...state, auth: false
              };
-        case 'LOGOUT':  
+        case 'LOGOUT': 
             return {
                 ...state, auth: false
             }

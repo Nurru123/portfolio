@@ -14,7 +14,8 @@ function Login(props) {
     useEffect(() => {
         if (props.auth) {
             navigate('/login/admin')
-        } 
+            localStorage.setItem('auth', props.auth)
+        }
     }, [props.auth, navigate])
     
     const changeHandler = (e) => {
@@ -25,6 +26,7 @@ function Login(props) {
         e.preventDefault();
         const { login, password } = user;
         props.isLoggedIn(login, password);
+        console.log(props.auth)
     }
         return (
             <div>
