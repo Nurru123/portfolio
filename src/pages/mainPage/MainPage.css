@@ -2,7 +2,8 @@
     width: 100%;
     display: flex;
     box-sizing: border-box;
-    padding: 60px 120px;
+    padding: 20px 120px;
     align-items: center;
     justify-content: center;
+    position: relative;
 }

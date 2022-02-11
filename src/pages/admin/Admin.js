@@ -8,8 +8,6 @@ import './Admin.css';
 function Admin(props) {
     const navigate = useNavigate()
 
-    let memory = localStorage.getItem('auth') === 'true';
-
     useEffect(() => {
         if (!props.auth) {
             localStorage.removeItem('auth')
@@ -25,6 +23,11 @@ function Admin(props) {
         <div className='admin-inner'>
             <div className='welcome'>
                 <div>Welcome!</div>
+                <form className='download'>
+                    <input type='file' accept=".png, .jpg, .jpeg" />
+                    <button type='submit'>Upload</button>
+                </form>
+                <div>or</div>
                 <button className='btn-out' onClick={() => clickHandler()}>Log out</button>
             </div>
         </div>

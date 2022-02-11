@@ -4,7 +4,7 @@
     display: flex;
     box-sizing: border-box;
     justify-content: center;
-    padding: 50px 100px 30px;
+    padding: 50px 100px 50px;
     background-color: black;
     background-image: URL('https://scontent-hel3-1.xx.fbcdn.net/v/t1.18169-9/26731203_1532628720184836_8111974481002223490_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=1umgeWxbb9sAX-iux7h&tn=zqWBrebCCuXDd5tA&_nc_ht=scontent-hel3-1.xx&oh=00_AT-mkHxz22KGykc5T70BqtZbIXsQLziCHxXYbJNL0J8BIA&oe=622176F0');
 }
@@ -20,6 +20,12 @@
     color: #FFFFFFE6;
     letter-spacing: .42em;
     text-transform: uppercase;
+    transition: 300ms;
+}
+.header-name:hover {
+    transform: scale(1.1);
+    color: white;
+    transition-timing-function: ease-in-out;    
 }
 .header-center-menu {
     display: flex;
@@ -31,7 +37,13 @@
     color: #FFFFFFE6;
     letter-spacing: .42em;
     text-transform: uppercase;
+    transition: 300ms;
 }
+.header-menu-item:hover {
+    transform: scale(1.1);
+    color: white;
+    transition-timing-function: ease-in-out;
+  }
 .header-side {
     width: 170px;
     box-sizing: border-box;
@@ -46,4 +58,9 @@
     width: 21px;
     height: 21px;
     margin: 10px 5px;
+    transition: 300ms;
+}
+.social:hover {
+    transform: scale(1.1);
+    transition-timing-function: ease-in-out;    
 }

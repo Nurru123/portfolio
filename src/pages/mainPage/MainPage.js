@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 
 import { Footer } from '../../components/footer/Footer';
 import { Header } from '../../components/header/Header';
-import { Overview } from '../overview/Overview';
+import Overview from '../overview/Overview';
 import { Projects } from '../projects/Projects';
 import { Contact } from '../contact/Contact';
 import { About } from '../about/About';
 import Login from '../login/Login';
 import Admin from '../admin/Admin';
+import Galery from '../overview/galery/Galery';
 
 import './MainPage.css';
 
@@ -26,6 +27,7 @@ function MainPage() {
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/login/admin" element={<Admin />} />
+                    <Route path="/galery" element={<Galery />} />
                 </Routes>
             </div>
             <Footer />

@@ -8,7 +8,7 @@ function reducer(state = initialState, action) {
 
     switch(action.type){
         case 'IS_LOGGED_IN':
-            const { login, password, auth } = state;
+            const { login, password } = state;
             if (login === action.payload.login && password === action.payload.password) {
                 state = {
                     ...state, auth: true

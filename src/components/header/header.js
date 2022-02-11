@@ -5,6 +5,9 @@ import { ReactComponent as Insta } from './pics/insta.svg';
 import { ReactComponent as Fb } from './pics/fb.svg';
 
 export function Header() {
+
+    
+
     return (
         <header>
             <div className='inner-header'>
