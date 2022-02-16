@@ -9,29 +9,30 @@ export default class Contact extends React.Component {
     state = {
         message: '',
         name: '',
-        emailTo: 'little.emiliya@gmail.com'
+        emailTo: 'little.emiliya@gmail.com',
+        emailFrom: ''
     };
 
     handleChange = (e) => {
-        console.log(e.target.name, e.target.value)
         this.setState({ ...this.state, [e.target.name]: e.target.value })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const templateId = 'template_id';
+        const templateId = 'template_s71y962';
+        console.log(this.state)
 
-        this.sendMessage(templateId, { message_html: this.state.message, from_name: this.state.name, reply_to: this.state.emailTo })
+        this.sendMessage(templateId, { message: this.state.message, from_name: this.state.name, reply_to: this.state.emailTo, email_from: this.state.emailFrom })
     }
 
     sendMessage = (templateId, variables) => {
         window.emailjs.send(
-            'gmail', templateId,
-            variables
+            'service_vu57n9r', templateId,
+            variables, "user_f14hv3v1s7l08KAEBo9J2"
         ).then(res => {
             console.log('Email successfully sent!')
         })
-        .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+            .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
     render() {
@@ -59,7 +60,11 @@ export default class Contact extends React.Component {
                         required
                     />
                     <label>E-mail*</label>
-                    <input className="input" type='email' required />
+                    <input className="input"
+                        type='email'
+                        name="emailFrom"
+                        onChange={this.handleChange}
+                        required />
                     <label>Message*</label>
                     <textarea className="input"
                         rows='5'
