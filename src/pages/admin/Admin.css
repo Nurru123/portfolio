@@ -4,8 +4,12 @@
     align-items: center;
 }
 
-.download {
+.images {
     display: flex;
-    flex-direction: column;
-    margin: 20px 0;
+    align-items: center;
+}
+
+.preview-img {
+    width: 60px;
+    padding: 5px;
 }

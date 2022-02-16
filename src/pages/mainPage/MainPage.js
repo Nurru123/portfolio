@@ -10,7 +10,7 @@ import { Contact } from '../contact/Contact';
 import { About } from '../about/About';
 import Login from '../login/Login';
 import Admin from '../admin/Admin';
-import Galery from '../overview/galery/Galery';
+import Gallery from '../overview/gallery/Gallery';
 
 import './MainPage.css';
 
@@ -27,7 +27,7 @@ function MainPage() {
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/login/admin" element={<Admin />} />
-                    <Route path="/galery" element={<Galery />} />
+                    <Route path="/gallery" element={<Gallery />} />
                 </Routes>
             </div>
             <Footer />

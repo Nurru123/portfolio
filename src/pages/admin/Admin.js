@@ -2,33 +2,88 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/actions';
+import { UploadForm } from './upload-form/Upload-Form';
+import { IoTrashSharp } from "react-icons/io5";
+import { FaPlus, FaFileUpload } from 'react-icons/fa';
 
 import './Admin.css';
 
+const HOST = 'http://localhost:3001'
+
 function Admin(props) {
     const navigate = useNavigate()
+    const [images, setImage] = useState([{ url: null }])
+
+
+    useEffect(() => {
+        if (images.length === 1 && images[0].url === null) {
+            fetch(`${HOST}/gallery`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length) {
+                        setImage(
+                            data.map(imgName => ({ url: `${HOST}/gallery/${imgName}` }))
+                        )
+                    }
+                })
+        }
+    }, [images])
 
     useEffect(() => {
         if (!props.auth) {
             localStorage.removeItem('auth')
             navigate('/login')
         }
-    }, [props.auth, localStorage.auth])
+    }, [props.auth, navigate])
 
-    const clickHandler = () => {
+    const logOut = () => {
         props.logOut()
+    }
+
+    const loadImage = (index, fileName) => {
+        images[index] = { ...images[index], url: `${HOST}/gallery/${fileName}` }
+        setImage([...images])
+    }
+
+    const addImage = () => {
+        setImage([...images, { url: null }])
+    }
+
+    const deleteImg = (url) => {
+        const urlSplit = url.split('/');
+        const fileName = urlSplit[urlSplit.length - 1];
+        fetch(`${HOST}/gallery/${fileName}`, {
+            method: 'DELETE'
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.length) {
+                setImage(
+                    data.map(imgName => ({ url: `${HOST}/gallery/${imgName}` }))
+                )
+            }
+        })
+
     }
 
     return (
         <div className='admin-inner'>
             <div className='welcome'>
                 <div>Welcome!</div>
-                <form className='download'>
-                    <input type='file' accept=".png, .jpg, .jpeg" />
-                    <button type='submit'>Upload</button>
-                </form>
-                <div>or</div>
-                <button className='btn-out' onClick={() => clickHandler()}>Log out</button>
+                {images.map((img, i) => (
+                    <div className='images'>
+                        <UploadForm
+                            key={i}
+                            img={img}
+                            host={HOST}
+                            id={i}
+                            callback={loadImage}
+                        />
+                        <button className='form-btn' onClick={() => deleteImg(img.url)}><IoTrashSharp className="btn-icon" /></button>
+                    </div>
+                ))}
+                <FaPlus className='form-btn' onClick={addImage} />
+                <button className='btn-out submit-btn' onClick={() => logOut()}>Log out</button>
             </div>
         </div>
     )

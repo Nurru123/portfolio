@@ -1,0 +1,20 @@
+.about-inner {
+    padding: 20px 100px;
+    max-width: 900px;
+    min-width: 540px;
+    box-sizing: border-box;
+}
+
+.about-inner img {
+    min-width: 50%;
+    margin-right: 25px;
+}
+
+.about-pic-text {
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}

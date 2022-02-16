@@ -1,0 +1,33 @@
+.contact-inner {
+    padding: 20px 100px;
+    max-width: 800px;
+    min-width: 540px;
+    box-sizing: border-box;
+}
+
+.contact-text-block {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0px 10px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: normal;
+    box-sizing: border-box;
+    border-radius: 2px;
+}

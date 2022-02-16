@@ -1,5 +1,6 @@
 import { cloneElement, useEffect, useRef, useState, Children } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom';
+import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { Page } from './Page/Page';
 import './Carousel.css'
 import { CarouselContext } from './carousel-context';
@@ -13,7 +14,7 @@ export const Carousel = ({ children, infinite }) => {
     const [transitionDuration, setTransitionDuration] = useState(TRANSITION_DURATION);
     const [clonesCount, setClonesCount] = useState({ head: 0, tail: 0 });
 
-    const windowElRef = useRef()
+    const windowElRef = useRef();
 
     useEffect(() => {
         if (infinite) {
@@ -44,7 +45,7 @@ export const Carousel = ({ children, infinite }) => {
     }, [clonesCount, width]);
 
     useEffect(() => {
-        if(transitionDuration === 0) {
+        if (transitionDuration === 0) {
             setTimeout(() => {
                 setTransitionDuration(TRANSITION_DURATION)
             }, TRANSITION_DURATION)
@@ -86,11 +87,17 @@ export const Carousel = ({ children, infinite }) => {
         })
     }
 
+    const navigate = useNavigate()
+
+    const handleExit = () => {
+        navigate('/')
+    }
 
     return (
         <CarouselContext.Provider value={{ width }}>
             <div className="main-container">
-                <FaChevronLeft className='arrow' onClick={handleLeftArrowClick} />
+                <FaTimes className='arrow exit' onClick={handleExit}/>
+                <FaChevronLeft className='arrow left-arrow' onClick={handleLeftArrowClick} />
                 <div className="window" ref={windowElRef}>
                     <div className="all-pages-container"
                         style={{
@@ -101,7 +108,7 @@ export const Carousel = ({ children, infinite }) => {
                         {pages}
                     </div>
                 </div>
-                <FaChevronRight className='arrow' onClick={handleRightArrowClick} />
+                <FaChevronRight className='arrow right-arrow' onClick={handleRightArrowClick} />
             </div>
         </CarouselContext.Provider>
     )

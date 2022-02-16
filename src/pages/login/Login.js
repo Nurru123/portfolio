@@ -32,9 +32,9 @@ function Login(props) {
             <div>
                 <form className='form' onSubmit={(e) => submitHandler(e)}>
                     <label>Login: </label>
-                    <input type='text' name='login' value={user.login} onChange={(e) => changeHandler(e)} required />
+                    <input className='input' type='text' name='login' value={user.login} onChange={(e) => changeHandler(e)} required />
                     <label>Password: </label>
-                    <input type='password' name='password' value={user.password} onChange={(e) => changeHandler(e)} required />
+                    <input className='input' type='password' name='password' value={user.password} onChange={(e) => changeHandler(e)} required />
                     <input type='submit' className='submit-btn' value='Enter'/>
                 </form>
             </div>

@@ -17,8 +17,8 @@ export function Header() {
                         <Link to={'/'}>VALERIA VERTEEVA</Link>
                     </div>
                     <div className='header-center-menu'>
-                        <div className='header-menu-item'><Link to={'/'}>MAIN PAGE</Link></div>
-                        <div className='header-menu-item'><Link to={'/projects'}>PROJECTS</Link></div>
+                        <div className='header-menu-item'><Link to={'/'}>OVERVIEW</Link></div>
+                        {/* <div className='header-menu-item'><Link to={'/projects'}>PROJECTS</Link></div> */}
                         <div className='header-menu-item'><Link to={'/contact'}>CONTACT</Link></div>
                         <div className='header-menu-item'><Link to={'/about'}>ABOUT</Link></div>
                     </div>

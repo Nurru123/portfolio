@@ -1,5 +1,5 @@
 const initialState = {
-    login: '123',
+    login: 'admin',
     password: 'ddd',
     auth: localStorage.getItem('auth')
 }
