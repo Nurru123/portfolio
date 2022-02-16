@@ -32,6 +32,10 @@ p {
 @media screen and (max-width: 900px) {
     .footer-menu-item {
         font-size: 11px;
-        margin: 0 15px;
+        margin: 3px 15px;
+    }
+    .footer-menu {
+        display: flex;
+        flex-direction: column;
     }
 }

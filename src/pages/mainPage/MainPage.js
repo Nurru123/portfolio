@@ -6,7 +6,7 @@ import { Footer } from '../../components/footer/Footer';
 import { Header } from '../../components/header/Header';
 import Overview from '../overview/Overview';
 import { Projects } from '../projects/Projects';
-import { Contact } from '../contact/Contact';
+import Contact from '../contact/Contact';
 import { About } from '../about/About';
 import Login from '../login/Login';
 import Admin from '../admin/Admin';

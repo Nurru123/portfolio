@@ -77,4 +77,9 @@ header {
     .header-menu-item {
         font-size: 11px;
     }
+    .social {
+        width: 15px;
+        height: 15px;
+        margin: 7px 3px;
+    }
 } 
