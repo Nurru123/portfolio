@@ -25,7 +25,6 @@ const galleryStorage = multer.diskStorage({
 
         const json = fs.readFileSync(`${DATA_FOLDER}/gallery.json`);
         const data = JSON.parse(json);
-        console.log(data)
         data[id] = file.originalname;
         fs.writeFileSync(`${DATA_FOLDER}/gallery.json`, JSON.stringify(data));
         cb(null, file.originalname);
@@ -40,7 +39,6 @@ app.get('/gallery/:file', (req, res) => {
 
 app.get('/gallery', (req, res) => {
     const json = fs.readFileSync(`${DATA_FOLDER}/gallery.json`);
-    console.log(json)
     res.send(json);
 })
 
@@ -48,20 +46,26 @@ app.post('/gallery/:id', galleryUpload.single('upload-image'), (req, res) => {
     res.send('Файл загружен')
 })
 
-app.delete('/gallery/:file', (req, res) => {
-    const { file } = req.params;
+app.delete('/gallery/:index', (req, res) => {
+    const { index } = req.params;
     const json = fs.readFileSync(`${DATA_FOLDER}/gallery.json`);
     let data = JSON.parse(json);
-    let fileName = data.find(name => name === file);
-    if (fileName) {
-        data = data.filter(item => item !== file)
+    let file = data[index];
+    if (file) {
+        data = data.filter((_, i) => i != index)
+        JSON.stringify(data)
         res.send(data)
+
+        fs.writeFileSync(`${DATA_FOLDER}/gallery.json`, JSON.stringify(data));
+
+        if(data.indexOf(file) < 0) {
+            fs.unlinkSync(`${IMAGES_FOLDER}/gallery/${file}`, function(err) {
+                if (err) throw err;
+                res.send('File deleted!');
+            })
+        }
     }
-    fs.writeFileSync(`${DATA_FOLDER}/gallery.json`, JSON.stringify(data));
-    fs.unlinkSync(`${IMAGES_FOLDER}/gallery/${file}`, function(err) {
-        if (err) throw err;
-        res.send('File deleted!');
-    })
+    
 })
 
 

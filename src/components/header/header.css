@@ -82,4 +82,12 @@ header {
         height: 15px;
         margin: 7px 3px;
     }
+    .header-side {
+        position: absolute;
+    }
+    .header-right {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
 } 

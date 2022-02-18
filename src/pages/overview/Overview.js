@@ -3,10 +3,21 @@ import { Link } from 'react-router-dom';
 import './Overview.css';
 
 const HOST = 'http://localhost:3001';
+const mobileSize = 500;
 
 export default function Overview() {
 
     const [pics, setPics] = useState([]);
+    const [mobile, setMobile] = useState(window.innerWidth <= mobileSize);
+
+    const resize = () => {
+        setMobile(window.innerWidth <= mobileSize)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', resize)
+        return () => window.removeEventListener('resize', resize)
+    })
 
     useEffect(() => {
 
@@ -26,7 +37,8 @@ export default function Overview() {
             {pics.map((pic, index) => (
                 <div className="pic-cover" key={index}>
                     <div className="pic">
-                        <Link to={'/gallery'}><img className="pic-item" src={pic.url} /></Link>
+                        {!mobile && <Link to={'/gallery'}><img className="pic-item" src={pic.url} /></Link>}
+                        {mobile && <img className="pic-item" src={pic.url} />}
                     </div>
                 </div>
             ))}

@@ -10,7 +10,9 @@ export default class Contact extends React.Component {
         message: '',
         name: '',
         emailTo: 'little.emiliya@gmail.com',
-        emailFrom: ''
+        emailFrom: '',
+        btnText: 'SEND',
+        disabled: false
     };
 
     handleChange = (e) => {
@@ -31,23 +33,26 @@ export default class Contact extends React.Component {
             variables, "user_f14hv3v1s7l08KAEBo9J2"
         ).then(res => {
             console.log('Email successfully sent!')
+            this.setState({...this.state, btnText: 'THANKS FOR MESSAGE!', disabled: true});
         })
             .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
     render() {
 
+        console.log(this.state.disabled)
+
         return (
             <div className="contact-inner">
                 <div className="contact-text-block">
                     <h2>CONTACT</h2>
-                    <div>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                         enim ad minim veniam, quis nostrud exercitation ullamco laboris
                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                         nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
                 </div>
                 <form className="contact-form" onSubmit={this.handleSubmit}>
@@ -73,7 +78,7 @@ export default class Contact extends React.Component {
                         onChange={this.handleChange}
                         required
                     ></textarea>
-                    <button className="submit-btn" type="submit">SEND</button>
+                    <button className="submit-btn" type="submit" disabled={this.state.disabled}>{this.state.btnText}</button>
                 </form>
             </div>
         )

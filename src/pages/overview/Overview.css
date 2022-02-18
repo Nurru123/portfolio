@@ -25,3 +25,19 @@
 .pic-item:hover {
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 700px) {
+  .pic-cover {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .overview__main-container {
+    flex-direction: column;
+  }
+  .pic-cover {
+    width: 100%;
+    padding: 5px 0;
+  }
+}

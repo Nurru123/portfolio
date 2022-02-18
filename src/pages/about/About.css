@@ -1,7 +1,7 @@
 .about-inner {
     padding: 20px 100px;
     max-width: 900px;
-    min-width: 540px;
+    min-width: 340px;
     box-sizing: border-box;
 }
 
@@ -17,4 +17,28 @@
 h2 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .about-inner {
+        padding: 10px 20px;
+    }
+    .about-pic-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-inner img {
+        width: 250px;
+    }
+    .about-inner img {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .about-inner {
+        padding: 10px;
+    }
 }

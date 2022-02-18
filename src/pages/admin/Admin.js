@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/actions';
 import { UploadForm } from './upload-form/Upload-Form';
 import { IoTrashSharp } from "react-icons/io5";
-import { FaPlus, FaFileUpload } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 
 import './Admin.css';
 
@@ -40,19 +40,17 @@ function Admin(props) {
         props.logOut()
     }
 
-    const loadImage = (index, fileName) => {
+    const loadImage = (fileName, index) => {
         images[index] = { ...images[index], url: `${HOST}/gallery/${fileName}` }
-        setImage([...images])
+        setImage([...images]);
     }
 
     const addImage = () => {
         setImage([...images, { url: null }])
     }
 
-    const deleteImg = (url) => {
-        const urlSplit = url.split('/');
-        const fileName = urlSplit[urlSplit.length - 1];
-        fetch(`${HOST}/gallery/${fileName}`, {
+    const deleteImg = (i) => {
+        fetch(`${HOST}/gallery/${i}`, {
             method: 'DELETE'
           })
           .then(res => res.json())
@@ -71,15 +69,14 @@ function Admin(props) {
             <div className='welcome'>
                 <div>Welcome!</div>
                 {images.map((img, i) => (
-                    <div className='images'>
+                    <div key={i} className='images'>
                         <UploadForm
-                            key={i}
                             img={img}
                             host={HOST}
                             id={i}
                             callback={loadImage}
                         />
-                        <button className='form-btn' onClick={() => deleteImg(img.url)}><IoTrashSharp className="btn-icon" /></button>
+                        <button className='form-btn' onClick={() => deleteImg(i)}><IoTrashSharp className="btn-icon" /></button>
                     </div>
                 ))}
                 <FaPlus className='form-btn' onClick={addImage} />

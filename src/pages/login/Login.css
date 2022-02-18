@@ -23,6 +23,11 @@ input {
     outline: none;
 }
 
+.submit-btn:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 .submit-btn:hover {
     background-color: #444;
 }
