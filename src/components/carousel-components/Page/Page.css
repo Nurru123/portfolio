@@ -4,5 +4,9 @@
     justify-content: center;
 }
 
-
+@media screen and (max-width: 950px) {
+    .page__main-container {
+        align-items: center;
+    }
+}
 

@@ -34,11 +34,14 @@ p {
         font-size: 11px;
         margin: 3px 15px;
     }
+    p {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 500px) {
     .footer-menu {
         display: flex;
         flex-direction: column;
-    }
-    p {
-        font-size: 8px;
     }
 }

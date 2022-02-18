@@ -11,19 +11,16 @@
     left: 0;
     z-index: 5;
   }
-  .lol{
-    width: 90vw;
-    height: 100vh;
-    background-color: rgba(134,255,178, 0.5);
-    position: fixed;
-    top: 0;
-    left: 60px;
-    z-index: 100;
-}
 
  .item {
     height: 100%;
     user-select: none;
     position: absolute;
     z-index: 1500;
+  }
+
+  @media screen and (max-width: 950px) {
+    .item {
+      height: fit-content;
+    }
   }
