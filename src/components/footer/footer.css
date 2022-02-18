@@ -43,5 +43,6 @@ p {
     .footer-menu {
         display: flex;
         flex-direction: column;
+        margin-bottom: 30px;
     }
 }

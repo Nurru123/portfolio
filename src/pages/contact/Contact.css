@@ -1,7 +1,6 @@
 .contact-inner {
     padding: 0 100px;
     max-width: 800px;
-    min-width: 540px;
     box-sizing: border-box;
     position: relative;
 }
@@ -31,4 +30,13 @@
     line-height: normal;
     box-sizing: border-box;
     border-radius: 2px;
+}
+
+@media screen and (max-width: 900px) {
+    .contact-inner {
+        padding: 0;
+    }
+    .contact-text-block {
+        font-size: 12px;
+    }
 }
