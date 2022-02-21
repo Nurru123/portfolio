@@ -81,8 +81,8 @@ header {
         font-size: 11px;
     }
     .social {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         margin: 7px 3px;
     }
     .header-side {
@@ -94,3 +94,14 @@ header {
         right: 20px;
     }
 } 
+
+@media screen and (max-width: 500px) {
+    .header-right {
+        top: 10px;
+        right: 0;
+    }
+    .social {
+        width: 15px;
+        height: 15px;
+    }
+}
