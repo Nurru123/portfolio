@@ -1,1 +1,2 @@
-Финальный проект для Algoritmika Bootcamp - Портфолио для фотографа с возможностью загрузки фото по авторизации. React, Redux, Express, Cors, React-Router
+Сайт-портфолио для фотографа с возможностью авторизации, загрузки и удаления фото, отправки сообщений на почту с помощью формы.
+Использованные технологии: React, Node.js, redux, express, cors, multer, router, react-icons, localStorage;
